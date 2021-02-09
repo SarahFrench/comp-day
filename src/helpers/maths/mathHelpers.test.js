@@ -1,5 +1,5 @@
 import {BAR_WEIGHT} from '../../constants/plateWeights'
-import {platesNeeded, sumAllPlatesPlusBar, totalPlatesNeeded} from  './index'
+import {platesNeeded, sumAllPlatesPlusBar, totalPlatesNeeded, roundToHigherCompetitionLegalWeight} from  './index'
 
 
 
@@ -37,6 +37,16 @@ describe('platesNeeded', ()=>{
         const resultingSumWeight = sumAllPlatesPlusBar(plates)
         expect(resultingSumWeight).toEqual(BAR_WEIGHT)
     })
+
+    it('handles a non-loadable target weight gracefully', ()=>{
+        //TODO: should this be validated in the front-end HTML form only?
+        const targetWeight = 100.35
+        const expectedReturnedWeight = 102.5 //This is the closest competiton-legal weight
+        //TODO: 0.5kg increments if youre going for a record
+        const plates = platesNeeded(targetWeight)
+        const resultingSumWeight = sumAllPlatesPlusBar(plates)
+        expect(resultingSumWeight).toEqual(expectedReturnedWeight)
+    })
 })
 
 describe('sumAllPlatesPlusBar', ()=>{
@@ -68,5 +78,18 @@ describe('totalPlatesNeeded', ()=>{
         }
         const expectedTotal = 1 + 2 + 3 + 3 + 2 + 1 + 0;
         expect(totalPlatesNeeded(plates)).toEqual(expectedTotal)
+    })
+})
+
+describe('roundToHigherCompetitionLegalWeight', ()=>{
+    it('returns a number unchanged if it\'s competition-legal ', ()=>{
+        const weight = 100;
+        expect(roundToHigherCompetitionLegalWeight(weight)).toEqual(weight)
+    })
+
+    it('returns a number rounded up to the nearest competition-legal weight', ()=>{
+        const weight = 102.1;
+        const expectedWeight = 102.5;
+        expect(roundToHigherCompetitionLegalWeight(weight)).toEqual(expectedWeight)
     })
 })

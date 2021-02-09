@@ -18,6 +18,20 @@ export const totalPlatesNeeded = (plates) => Object.values(plates).reduce( (sum,
     return sum
 }, 0)
 
+export const roundToHigherCompetitionLegalWeight = (number) => {
+    const COMP_LEGAL_INCREMENT = 2.5
+    const remainderString = (number % COMP_LEGAL_INCREMENT).toFixed(2); //get remainder to sensible number of decimal places
+    const remainderFloat = parseFloat(remainderString) //convert away from string
+    let adjustment = 0;
+    
+    if(remainderFloat > 0){
+        //not divisible by smallest possible increment
+        adjustment = COMP_LEGAL_INCREMENT - remainderFloat
+    }
+
+    return number + adjustment
+}
+
 export const platesNeeded = (targetWeight) => {
     //need to spread as otherwise passing by references
     let loadingInstructions = {...DEFAULT_PLATE_LOADING_INSTRUCTIONS};
@@ -25,6 +39,11 @@ export const platesNeeded = (targetWeight) => {
     if(targetWeight === BAR_WEIGHT){
         //no plates needed at all
         return loadingInstructions
+    }
+
+    if(targetWeight % 0.5 > 0){
+        //invalid loaded weight entered
+        targetWeight = roundToHigherCompetitionLegalWeight(targetWeight)
     }
 
     //plates neeeded, so account for bar before maths

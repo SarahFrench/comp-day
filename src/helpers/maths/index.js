@@ -30,13 +30,12 @@ export const platesNeeded = (targetWeight) => {
     //plates neeeded, so account for bar before maths
     const plateWeight = targetWeight - BAR_WEIGHT;
 
-    //once you have plate math for one side you're sorted
-    const halfPlateWeight = plateWeight /2;
-
-    let unallocatedWeight = halfPlateWeight;
+    //keep track of the weight of plates yet to be added
+    let loadedWeight = 0;
     for(let i = 0; i < PLATES_LARGE_TO_SMALL.length; i++){
-        while(unallocatedWeight - PLATES_LARGE_TO_SMALL[i] >= 0){
-            unallocatedWeight = unallocatedWeight - PLATES_LARGE_TO_SMALL[i];
+        //can you load 2 more of this size plate and not overshoot
+        while(loadedWeight + ( 2* PLATES_LARGE_TO_SMALL[i] ) <= plateWeight){
+            loadedWeight = loadedWeight + ( 2 * PLATES_LARGE_TO_SMALL[i]);
             loadingInstructions[`${PLATES_LARGE_TO_SMALL[i]}`] += 2;
         }
     }

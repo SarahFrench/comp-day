@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Untitled Powerlifting Scoring App (aka comp-day)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In the past I have volunteered to score powerlifting competitions in London, both university and official IPF divisional competitions. Typically this was done using a really old Excel spreadsheet that was copied and passed between powerlifters as needed:
 
-## Available Scripts
+It was buggy but necessary because of the work needed to:
+- allow easy data entry of competitor's details on the morning of a competition
+- determine the order of competitors for each flight* based on past successful lifts
+- allow data entry of competitors' attempt selections* throughout the competition
+- automated calculation of competitors scores throughout the day
 
-In the project directory, you can run:
+In this project I want to make an online powerlifting scoring tool, as it's a non-trivial side project to practice web development, but also hopefully benefit amateur powerlifting competitions. Other online powerlifting scoring tools have been produced online in the past, but they were not very intuitive. Or perhaps there are others but they're not very discoverable via Google or powerlifting social groups.
 
-### `npm start`
+\* see Glossary at the end of the README
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Approach
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Frontend
+Using React : I'm going to create a React app with stubbed data to start, where I can get experience managing complex state (maybe using Redux?).
+TDD: I'm going to be strict and use TDD through this project.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Backend
+At some point I'll create a backend, and am yet to decide the approach (SQL/NoSQL etc).
 
 ### Deployment
+And along the way I'm going to invesitgate hosting it on GCP.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Glossary
 
-### `npm run build` fails to minify
+| Word | Meaning|
+|------|--------|
+|attempt| One of the 3 'goes' a competitor gets for a given _event_.|
+|event| AKA lift, or exercise. The 3 events are squat, bench press and deadlift.|
+|flight| A group of lifters taking turns to attempt a lift. Everyone in a flight takes their first attempts in weight order, and then everyone begins their second attempt, etc.|
+|good lift| An attempt at a lift that has satisfied the referees, who judge whether a lift was competed successfullt in accordance with the technical rules.|
+|no lift| An attempt at a lift that has been deemed unsuccessful, either due to failure to lift the weight or unsatisfactory technique that isn't in accordance with the technical rules. E.g. a deadlift where the competitor does not lower the bar in a controlled fashion|
+|powerlifting| A strength sport where competitors get 3 _attempts_ to lift as much weight as possible in squat, bench press and deadlift exercises. Scores are created by summing the heaviest weight lifted for each one (See _total_).|
+|total| The sum of a competitor's heaviest successful squat + heaviest successful bench press + heaviest successful deadlift. See _good lift_)|
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+

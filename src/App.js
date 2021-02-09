@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import NextCompetitor from "./components/NextCompetitor";
+import ProgressBar from "./components/ProgressBar"
 
-function App() {
+const defaultProps = {
+  competitor: {
+          name: "Sarah French",
+          squat: [100],
+          bench: [],
+          deadlift: [],
+      },
+      event : "squat",
+      round : 2
+}
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <main>
+        <ProgressBar/>
+        <NextCompetitor {...defaultProps}/>
+      </main>
     </div>
   );
 }

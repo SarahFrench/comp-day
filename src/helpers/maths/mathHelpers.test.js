@@ -1,4 +1,4 @@
-import {BAR_WEIGHT} from '../../enums/constants'
+import {BAR_WEIGHT} from '../../constants/plateWeights'
 import {platesNeeded, sumAllPlatesPlusBar, totalPlatesNeeded} from  './index'
 
 

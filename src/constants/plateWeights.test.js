@@ -1,4 +1,4 @@
-import {PLATE_OPTIONS, DEFAULT_PLATE_LOADING_INSTRUCTIONS} from './constants'
+import {PLATE_OPTIONS, DEFAULT_PLATE_LOADING_INSTRUCTIONS} from './plateWeights'
 
 describe('DEFAULT_PLATE_LOADING_INSTRUCTIONS', ()=>{
     it('has the ability to recommed all valid plate sizes', ()=>{

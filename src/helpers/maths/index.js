@@ -1,4 +1,4 @@
-import {BAR_WEIGHT, PLATE_OPTIONS, DEFAULT_PLATE_LOADING_INSTRUCTIONS} from '../../enums/constants'
+import {BAR_WEIGHT, PLATE_OPTIONS, DEFAULT_PLATE_LOADING_INSTRUCTIONS} from '../../constants/plateWeights'
 
 const PLATES_LARGE_TO_SMALL = PLATE_OPTIONS.sort((last, next)=>{
     return next - last

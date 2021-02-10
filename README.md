@@ -4,10 +4,10 @@ In the past I have volunteered to score powerlifting competitions in London, bot
 
 <img src="docs/images/excel-spreadsheet-competition-view.png"/>
 
-It was buggy but necessary because of the work needed to:
-- allow easy data entry of competitor's details on the morning of a competition
-- determine the order of competitors for each flight* based on past successful lifts
-- allow data entry of competitors' attempt selections* throughout the competition
+It was buggy but a necessary evil as it enabled:
+- easy data entry of competitor's details on the morning of a competition
+- automated ordering of competitors for each flight* based on past successful lifts
+- parallel data entry of competitors' next attempt selections* alongside marking lifts as successful or not
 - automated calculation of competitors scores throughout the day
 
 In this project I want to make an online powerlifting scoring tool, as it's a non-trivial side project to practice web development, but also hopefully benefit amateur powerlifting competitions. Other online powerlifting scoring tools have been produced online in the past, but they were not very intuitive. Or perhaps there are others but they're not very discoverable via Google or powerlifting social groups.

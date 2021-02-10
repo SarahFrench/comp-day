@@ -2,6 +2,8 @@
 
 In the past I have volunteered to score powerlifting competitions in London, both university and official IPF divisional competitions. Typically this was done using a really old Excel spreadsheet that was copied and passed between powerlifters as needed:
 
+<img src="docs/images/excel-spreadsheet-competition-view.png"/>
+
 It was buggy but necessary because of the work needed to:
 - allow easy data entry of competitor's details on the morning of a competition
 - determine the order of competitors for each flight* based on past successful lifts

@@ -1,16 +1,19 @@
 import NextCompetitor from "./components/NextCompetitor";
 import ProgressBar from "./components/ProgressBar"
+import {Competitor} from "./classes/Competitor"
+
+const sarah = new Competitor("Sarah French", 63);
+const event = "squat";
+const round = 0;
+
+sarah.setNextAttempt(event, round); //setFirstAttempt
 
 const defaultProps = {
-  competitor: {
-          name: "Sarah French",
-          squat: [100],
-          bench: [],
-          deadlift: [],
-      },
-      event : "squat",
-      round : 2
+  competitor: sarah,
+      event : event,
+      round : round
 }
+
 
 const App = () => {
   return (

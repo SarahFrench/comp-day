@@ -3,7 +3,7 @@ import ProgressBar from './ProgressBar'
 import {findByTestAttribute} from '../helpers/testing/'
 
 const defaultProps = {
-    activeRound: 1
+    activeRound: 0 //first round
 }
 
 const setup = (providedProps={}) =>{
@@ -18,10 +18,12 @@ describe('ProgressBar', ()=>{
         expect(component.text()).toBe("123")
     })
     it('correctly identifies the active round', ()=>{
-        const wrapper = setup({activeRound: 2});
+        const roundZeroIndexed = 1;
+        const roundNonZeroIndexed = 2;
+        const wrapper = setup({activeRound: roundZeroIndexed});
         const curentRound = findByTestAttribute(wrapper, 'current-round');
         expect(curentRound.length).toBe(1)
-        expect(curentRound.text()).toBe("2")
+        expect(curentRound.text()).toBe(`${roundNonZeroIndexed}`)
 
     })
 })

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 
 const ProgressBar = ({activeRound}) => {
     const ROUNDS = [1,2,3];
+    const currentRound = activeRound + 1; //stop being 0-index
 
     const points = ROUNDS.map( round =>{
-        if(round === activeRound){
+        if(round === currentRound){
             return <div key={`round-${round}`} data-test="current-round">{round}</div>
         }
         return <div key={`round-${round}`} >{round}</div>

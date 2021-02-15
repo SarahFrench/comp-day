@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme'
 import NextCompetitor from './NextCompetitor'
-import {findByTestAttribute} from '../helpers/testing/'
+import {findByTestAttribute} from '../helpers/testing'
 import {SQUAT} from '../constants/events';
 
 import {Competitor} from '../classes/Competitor'
